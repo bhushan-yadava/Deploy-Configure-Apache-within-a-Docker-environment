@@ -1,0 +1,22 @@
+docker run -dit --name apache-custom -p 8081:80 -v $(pwd):/usr/local/apache2/htdocs/ httpd
+
+docker build -t my-apache .
+
+docker run -dit --name apache-custom -p 8082:80 my-apache
+
+#Manage the Container
+
+# list running containers
+docker ps        
+
+# view logs
+docker logs apache-custom 
+
+ # enter the container shell
+docker exec -it apache-custom bash
+
+# stop container
+docker stop apache-custom  
+
+# restart container
+docker start apache-custom 
